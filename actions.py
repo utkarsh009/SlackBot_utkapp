@@ -26,7 +26,7 @@ def callFixer(event):
     sendResponse(event,result)
 def doCommand(event):
     command = re.split("> ",event["event"]["text"],maxsplit=1)[1]
-    m = re.match("[a-zA-Z\s]*(\d+\.\d*).*([a-zA-Z]{3}).*([a-zA-Z]{3})",command)
+    m = re.match("[a-zA-Z\s]*(\d+\.*\d*).*([a-zA-Z]{3}).*([a-zA-Z]{3})",command)
     if bool(m):
         commandParams = {"amount": m.group(1), "source": m.group(2), "target": m.group(3)}
         print(commandParams)
